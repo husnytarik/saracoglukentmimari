@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İletişim — Saraçoğlu Kent Mimari</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* ---- INFO SIDE ---- */
+    .contact-info { }
+
+    .info-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: transform 0.2s;
+    }
+
+    .info-card:hover { transform: translateY(-3px); }
+
+    .info-icon {
+      flex-shrink: 0;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .info-card h4 { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+    .info-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; }
+    .info-card a { color: var(--text-main); font-weight: 500; }
+    .info-card a:hover { color: var(--accent); }
+
+    /* ---- FORM SIDE ---- */
+    .contact-form-wrap {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 44px 40px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contact-form-wrap h3 { margin-bottom: 8px; }
+    .contact-form-wrap > p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 32px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid #e5e5e5;
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      background: var(--cream);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(200,169,110,0.15);
+      background: var(--white);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 130px; }
+
+    .form-submit { width: 100%; margin-top: 8px; justify-content: center; font-size: 0.9rem; }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 36px 0;
+    }
+
+    .form-success svg {
+      color: var(--accent2);
+      margin: 0 auto 16px;
+    }
+
+    .form-success h4 { font-size: 1.3rem; margin-bottom: 8px; }
+    .form-success p { color: var(--text-muted); }
+
+    /* ---- MAP ---- */
+    .map-section {
+      margin-top: -1px;
+    }
+
+    .map-wrap {
+      width: 100%;
+      height: 420px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .contact-form-wrap { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="https://static.wixstatic.com/media/b6cc17_3a07f7cb346d4ff6aaf0f38547e2d93a~mv2.png/v1/fill/w_69,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Sembol_Ger%C3%A7ek.png" alt="Logo">
+    <div class="nav-logo-text">SARAÇOĞLU<span>Kent Mimari</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Ana Sayfa</a></li>
+    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+    <li><a href="hizmetler.html">Hizmetler</a></li>
+    <li><a href="portfolio.html">Portföy</a></li>
+    <li><a href="iletisim.html" class="active nav-cta">İletişim</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav">
+  <a href="index.html">Ana Sayfa</a>
+  <a href="hakkimizda.html">Hakkımızda</a>
+  <a href="hizmetler.html">Hizmetler</a>
+  <a href="portfolio.html">Portföy</a>
+  <a href="iletisim.html">İletişim</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="label anim-up">Bize Ulaşın</p>
+  <h1 class="anim-up-2">İletişim</h1>
+  <p class="anim-up-3">Projenizi konuşmaya hazır mısınız? İlk görüşme tamamen ücretsiz.</p>
+</div>
+
+<!-- CONTACT -->
+<section>
+  <div class="contact-grid">
+    <!-- Info -->
+    <div class="contact-info reveal">
+      <div class="info-card">
+        <div class="info-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.85 19.79 19.79 0 01.1 1.18C.1.54.47.05 1.11.02h3a2 2 0 012 1.72 13 13 0 00.7 2.81 2 2 0 01-.45 2.11L5.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 13 13 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+        </div>
+        <div>
+          <h4>Telefon</h4>
+          <p>
+            <a href="tel:02423140746">0 (242) 314 07 46</a><br>
+            <a href="tel:05326176374">0532 617 63 74</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <h4>E-Posta</h4>
+          <p><a href="mailto:saracoglukentmimari@gmail.com">saracoglukentmimari@gmail.com</a></p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <h4>Adres</h4>
+          <p>Yavuz Sultan Selim Caddesi<br>626. Sokak<br>Döşemealtı / Antalya</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        </div>
+        <div>
+          <h4>Çalışma Saatleri</h4>
+          <p>Pazartesi – Cuma: 08:00 – 18:00<br>Cumartesi: 09:00 – 14:00<br>Pazar: Kapalı</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="contact-form-wrap reveal">
+      <h3>Mesaj Gönderin</h3>
+      <p>Formu doldurun, en kısa sürede sizi arayalım.</p>
+
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Ad *</label>
+            <input type="text" name="ad" placeholder="Adınız" required>
+          </div>
+          <div class="form-group">
+            <label>Soyad *</label>
+            <input type="text" name="soyad" placeholder="Soyadınız" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Telefon *</label>
+            <input type="tel" name="telefon" placeholder="0 5XX XXX XX XX" required>
+          </div>
+          <div class="form-group">
+            <label>E-Posta</label>
+            <input type="email" name="email" placeholder="mail@example.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Hizmet Türü</label>
+          <select name="hizmet">
+            <option value="">Seçiniz...</option>
+            <option>Villa Projesi</option>
+            <option>Konut Projesi</option>
+            <option>Otel Projesi</option>
+            <option>Kentsel Tasarım</option>
+            <option>Mimari Danışmanlık</option>
+            <option>Diğer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mesajınız *</label>
+          <textarea name="mesaj" placeholder="Projeniz hakkında kısaca bilgi verin..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">
+          Gönder
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <svg width="52" height="52" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" display="block">
+          <circle cx="12" cy="12" r="10" stroke="var(--accent2)"/>
+          <polyline points="8,12 11,15 16,9" stroke="var(--accent2)"/>
+        </svg>
+        <h4>Mesajınız İletildi!</h4>
+        <p>En kısa sürede sizi arayacağız. Teşekkür ederiz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section" style="padding-top:0;">
+  <p class="label reveal" style="margin-bottom:24px;">Konumumuz</p>
+  <div class="map-wrap reveal">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.123!2d30.6!3d37.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c38f6d9e8d4e93%3A0x1!2zRMO2xZ9lbWVhbHTEsSwgQW50YWx5YQ!5e0!3m2!1str!2str!4v1"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:16px;">
+        <img src="https://static.wixstatic.com/media/b6cc17_3a07f7cb346d4ff6aaf0f38547e2d93a~mv2.png/v1/fill/w_69,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif/Sembol_Ger%C3%A7ek.png" alt="Logo" style="height:40px;width:40px;object-fit:contain;">
+        <div class="nav-logo-text">SARAÇOĞLU<span>Kent Mimari</span></div>
+      </div>
+      <p>Kent dokusuna değer katan, sürdürülebilir ve estetik çözümler sunan bir mimarlık ve kentsel tasarım firması.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Sayfalar</h4>
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="hizmetler.html">Hizmetler</a></li>
+        <li><a href="portfolio.html">Portföy</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Hizmetler</h4>
+      <ul>
+        <li><a href="hizmetler.html">Villa Projeleri</a></li>
+        <li><a href="hizmetler.html">Konut Projeleri</a></li>
+        <li><a href="hizmetler.html">Otel Projeleri</a></li>
+        <li><a href="hizmetler.html">Kentsel Tasarım</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>İletişim</h4>
+      <div class="footer-contact-item">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.85 19.79 19.79 0 01.1 1.18C.1.54.47.05 1.11.02h3a2 2 0 012 1.72 13 13 0 00.7 2.81 2 2 0 01-.45 2.11L5.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 13 13 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+        <div>0 (242) 314 07 46<br>0532 617 63 74</div>
+      </div>
+      <div class="footer-contact-item">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <div>saracoglukentmimari@gmail.com</div>
+      </div>
+      <div class="footer-contact-item">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>Döşemealtı / Antalya</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Saraçoğlu Kent Mimari. Tüm hakları saklıdır.</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Form submit (frontend only - gerçek gönderim için backend gerekli)
+  document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+</script>
+</body>
+</html>
